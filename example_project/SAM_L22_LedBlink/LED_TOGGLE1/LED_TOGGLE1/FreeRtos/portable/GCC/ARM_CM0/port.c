@@ -138,6 +138,7 @@ volatile uint32_t ulDummy = 0UL;
 
 void vPortSVCHandler( void )
 {
+
 	/* This function is no longer used, but retained for backward
 	compatibility. */
 }

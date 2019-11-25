@@ -128,7 +128,8 @@ FreeRtosExampleTask/LedTasks.d FreeRtosExampleTask/LedTasks.o: \
  ../FreeRtos/include/deprecated_definitions.h \
  ../FreeRtos/portable/portmacro.h ../FreeRtos/include/mpu_wrappers.h \
  ../src/ASF/sam0/drivers/port/port.h \
- ../src/ASF/sam0/drivers/system/pinmux/pinmux.h
+ ../src/ASF/sam0/drivers/system/pinmux/pinmux.h \
+ ../FreeRtos/include/task.h ../FreeRtos/include/list.h
 
 ../FreeRtosExampleTask/LedTasks.h:
 
@@ -397,3 +398,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../src/ASF/sam0/drivers/port/port.h:
 
 ../src/ASF/sam0/drivers/system/pinmux/pinmux.h:
+
+../FreeRtos/include/task.h:
+
+../FreeRtos/include/list.h:

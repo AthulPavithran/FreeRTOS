@@ -71,4 +71,12 @@ to exclude the API function. */
 #define INCLUDE_vTaskDelay				1
 
 
+
+/* Definitions that map the FreeRTOS port interrupt handlers to their CMSIS
+standard names - or at least those used in the unmodified vector table. */
+#define vPortSVCHandler                         SVC_Handler
+#define xPortPendSVHandler                      PendSV_Handler
+#define xPortSysTickHandler                     SysTick_Handler
+
+
 #endif /* FREERTOS_CONFIG_H */

@@ -79,8 +79,9 @@
 #include "FreeRTOS.h"
 #include "FreeRtosTasks.h"
 #include "task.h"
+#include "port.h"
 
-
+#if 0
 /** Handler for the device SysTick module, called when the SysTick counter
  *  reaches the set period.
  *
@@ -91,7 +92,9 @@
 void SysTick_Handler(void)
 {
 	port_pin_toggle_output_level(LED_0_PIN);
+	/*xPortSysTickHandler();*/
 }
+#endif
 
 /** Configure LED0, turn it off*/
 static void config_led(void)
@@ -112,15 +115,15 @@ int main(void)
 	SysTick_Config(system_gclk_gen_get_hz(GCLK_GENERATOR_0));
 	
 	//! [setup_init]
-	configure_tc();
-	configure_tc_callbacks();
+	/*configure_tc();
+	configure_tc_callbacks();*/
 	//! [enable_global_interrupts]
-	system_interrupt_enable_global();
+	/*system_interrupt_enable_global();*/
 	//! [enable_global_interrupts]
 	
 
 	config_led();
-	
+
 	FreeRtosTasks();
 	
 	vTaskStartScheduler();
