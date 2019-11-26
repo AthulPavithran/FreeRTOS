@@ -80,6 +80,7 @@
 #include "FreeRtosTasks.h"
 #include "task.h"
 #include "port.h"
+#include "stdio_serial.h"
 
 #if 0
 /** Handler for the device SysTick module, called when the SysTick counter
@@ -110,6 +111,9 @@ static void config_led(void)
 int main(void)
 {
 	system_init();
+	
+	/*Configure UART console.*/
+	configure_console();
 
 	/*Configure system tick to generate periodic interrupts */
 	SysTick_Config(system_gclk_gen_get_hz(GCLK_GENERATOR_0));
@@ -121,6 +125,8 @@ int main(void)
 	/*system_interrupt_enable_global();*/
 	//! [enable_global_interrupts]
 	
+	/* Output example information */
+	puts("scheduler started..\r\n");
 
 	config_led();
 

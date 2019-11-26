@@ -6,6 +6,13 @@ TaskHandle_t sLedOnTask;
 TaskHandle_t sLedffTask;
 
 
+void vApplicationIdleHook( void )
+{
+	/* enter sleep mode*/
+	__WFI();	
+}
+
+
 BaseType_t FreeRtosTasks(void)
 {
 BaseType_t u32RetType; 	

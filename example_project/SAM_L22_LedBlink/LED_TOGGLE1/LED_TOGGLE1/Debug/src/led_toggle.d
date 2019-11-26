@@ -140,7 +140,15 @@ src/led_toggle.d src/led_toggle.o: ../src/led_toggle.c ../src/asf.h \
  ../FreeRtos/include/deprecated_definitions.h \
  ../FreeRtos/portable/portmacro.h ../FreeRtos/include/mpu_wrappers.h \
  ../FreeRtosExampleTask/FreeRtosTasks.h ../FreeRtos/include/task.h \
- ../FreeRtos/include/list.h
+ ../FreeRtos/include/list.h \
+ ../src/ASF/sam0/drivers/sercom/edbg/stdio_serial.h \
+ ../src/ASF/common/sevices/serial/serial.h \
+ ../src/ASF/common/sevices/serial/sam0_usart/usart_serial.h \
+ ../src/ASF/sam0/drivers/sercom/usart/usart.h \
+ ../src/ASF/sam0/drivers/sercom/sercom.h \
+ ../src/ASF/sam0/drivers/sercom/sercom_pinout.h \
+ ../src/ASF/sam0/drivers/sercom/sercom_interrupt.h \
+ ../src/ASF/sam0/drivers/sercom/sercom.h
 
 ../src/asf.h:
 
@@ -441,3 +449,19 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../FreeRtos/include/task.h:
 
 ../FreeRtos/include/list.h:
+
+../src/ASF/sam0/drivers/sercom/edbg/stdio_serial.h:
+
+../src/ASF/common/sevices/serial/serial.h:
+
+../src/ASF/common/sevices/serial/sam0_usart/usart_serial.h:
+
+../src/ASF/sam0/drivers/sercom/usart/usart.h:
+
+../src/ASF/sam0/drivers/sercom/sercom.h:
+
+../src/ASF/sam0/drivers/sercom/sercom_pinout.h:
+
+../src/ASF/sam0/drivers/sercom/sercom_interrupt.h:
+
+../src/ASF/sam0/drivers/sercom/sercom.h:
