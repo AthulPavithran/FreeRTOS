@@ -529,6 +529,12 @@
     <Compile Include="FreeRtosExampleTask\LedTasks.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="FreeRtosExampleTask\SerialPortTask.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="FreeRtosExampleTask\SerialPortTask.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="FreeRtos\croutine.c">
       <SubType>compile</SubType>
     </Compile>

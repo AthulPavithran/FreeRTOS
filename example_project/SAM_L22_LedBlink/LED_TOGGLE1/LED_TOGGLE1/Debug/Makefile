@@ -105,6 +105,7 @@ SUBDIRS :=  \
 C_SRCS +=  \
 ../FreeRtosExampleTask/FreeRtosTasks.c \
 ../FreeRtosExampleTask/LedTasks.c \
+../FreeRtosExampleTask/SerialPortTask.c \
 ../FreeRtos/croutine.c \
 ../FreeRtos/event_groups.c \
 ../FreeRtos/list.c \
@@ -147,6 +148,7 @@ ASM_SRCS +=
 OBJS +=  \
 FreeRtosExampleTask/FreeRtosTasks.o \
 FreeRtosExampleTask/LedTasks.o \
+FreeRtosExampleTask/SerialPortTask.o \
 FreeRtos/croutine.o \
 FreeRtos/event_groups.o \
 FreeRtos/list.o \
@@ -182,6 +184,7 @@ src/led_toggle.o
 OBJS_AS_ARGS +=  \
 FreeRtosExampleTask/FreeRtosTasks.o \
 FreeRtosExampleTask/LedTasks.o \
+FreeRtosExampleTask/SerialPortTask.o \
 FreeRtos/croutine.o \
 FreeRtos/event_groups.o \
 FreeRtos/list.o \
@@ -217,6 +220,7 @@ src/led_toggle.o
 C_DEPS +=  \
 FreeRtosExampleTask/FreeRtosTasks.d \
 FreeRtosExampleTask/LedTasks.d \
+FreeRtosExampleTask/SerialPortTask.d \
 FreeRtos/croutine.d \
 FreeRtos/event_groups.d \
 FreeRtos/list.d \
@@ -252,6 +256,7 @@ src/led_toggle.d
 C_DEPS_AS_ARGS +=  \
 FreeRtosExampleTask/FreeRtosTasks.d \
 FreeRtosExampleTask/LedTasks.d \
+FreeRtosExampleTask/SerialPortTask.d \
 FreeRtos/croutine.d \
 FreeRtos/event_groups.d \
 FreeRtos/list.d \
@@ -307,6 +312,13 @@ FreeRtosExampleTask/FreeRtosTasks.o: ../FreeRtosExampleTask/FreeRtosTasks.c
 	
 
 FreeRtosExampleTask/LedTasks.o: ../FreeRtosExampleTask/LedTasks.c
+	@echo Building file: $<
+	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAML22N18A__ -DDEBUG -DBOARD=SAML22_XPLAINED_PRO -D__SAML22N18A__ -DARM_MATH_CM0PLUS=true  -I"../src/ASF/sam0/boards/saml22_xplained_pro" -I"../src/ASF/sam0/boards" -I"../src/ASF/sam0/utils/cmsis/saml22/source" -I"../src/ASF/sam0/utils/cmsis/saml22/include" -I"../src/ASF/sam0/utils" -I"../src/ASF/sam0/utils/header_files" -I"../src/ASF/sam0/utils/preprocessor" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src/ASF/common/boards" -I"../src/ASF/sam0/drivers/port" -I"../src/ASF/sam0/drivers/system/pinmux" -I"../src/ASF/sam0/drivers/system" -I"../src/ASF/sam0/drivers/system/clock/clock_saml22" -I"../src/ASF/sam0/drivers/system/clock" -I"../src/ASF/sam0/drivers/system/interrupt" -I"../src/ASF/sam0/drivers/system/interrupt/system_interrupt_saml22" -I"../src/ASF/sam0/drivers/system/power/power_sam_l" -I"../src/ASF/sam0/drivers/system/power" -I"../src/ASF/sam0/drivers/system/reset/reset_sam_l" -I"../src/ASF/sam0/drivers/system/reset" -I"../src" -I"../src/config" -I"../FreeRtos/include/FreeRtosConfig" -I"../FreeRtos/include" -I"../FreeRtos/portable" -I"../src/ASF/sam0/drivers/tc" -I"../FreeRtosExampleTask" -I"../src/ASF/sam0/drivers/Edbg" -I"../src/ASF/sam0/drivers/sercom/usart" -I"../src/ASF/sam0/drivers/sercom" -I"../src/ASF/sam0/drivers/sercom/edbg" -I"../src/ASF/common/sevices/serial"  -O0 -fdata-sections -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m0plus -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return  -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+FreeRtosExampleTask/SerialPortTask.o: ../FreeRtosExampleTask/SerialPortTask.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAML22N18A__ -DDEBUG -DBOARD=SAML22_XPLAINED_PRO -D__SAML22N18A__ -DARM_MATH_CM0PLUS=true  -I"../src/ASF/sam0/boards/saml22_xplained_pro" -I"../src/ASF/sam0/boards" -I"../src/ASF/sam0/utils/cmsis/saml22/source" -I"../src/ASF/sam0/utils/cmsis/saml22/include" -I"../src/ASF/sam0/utils" -I"../src/ASF/sam0/utils/header_files" -I"../src/ASF/sam0/utils/preprocessor" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src/ASF/common/boards" -I"../src/ASF/sam0/drivers/port" -I"../src/ASF/sam0/drivers/system/pinmux" -I"../src/ASF/sam0/drivers/system" -I"../src/ASF/sam0/drivers/system/clock/clock_saml22" -I"../src/ASF/sam0/drivers/system/clock" -I"../src/ASF/sam0/drivers/system/interrupt" -I"../src/ASF/sam0/drivers/system/interrupt/system_interrupt_saml22" -I"../src/ASF/sam0/drivers/system/power/power_sam_l" -I"../src/ASF/sam0/drivers/system/power" -I"../src/ASF/sam0/drivers/system/reset/reset_sam_l" -I"../src/ASF/sam0/drivers/system/reset" -I"../src" -I"../src/config" -I"../FreeRtos/include/FreeRtosConfig" -I"../FreeRtos/include" -I"../FreeRtos/portable" -I"../src/ASF/sam0/drivers/tc" -I"../FreeRtosExampleTask" -I"../src/ASF/sam0/drivers/Edbg" -I"../src/ASF/sam0/drivers/sercom/usart" -I"../src/ASF/sam0/drivers/sercom" -I"../src/ASF/sam0/drivers/sercom/edbg" -I"../src/ASF/common/sevices/serial"  -O0 -fdata-sections -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m0plus -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return  -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

@@ -6,6 +6,8 @@ FreeRtosExampleTask\FreeRtosTasks.c
 
 FreeRtosExampleTask\LedTasks.c
 
+FreeRtosExampleTask\SerialPortTask.c
+
 FreeRtos\croutine.c
 
 FreeRtos\event_groups.c

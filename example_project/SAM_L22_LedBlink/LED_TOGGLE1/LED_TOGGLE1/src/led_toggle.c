@@ -120,10 +120,10 @@ int main(void)
 	
 	//! [setup_init]
 	/*configure_tc();
-	configure_tc_callbacks();*/
+	configure_tc_callbacks();
 	//! [enable_global_interrupts]
-	/*system_interrupt_enable_global();*/
-	//! [enable_global_interrupts]
+	system_interrupt_enable_global();
+	//! [enable_global_interrupts]*/
 	
 	/* Output example information */
 	puts("scheduler started..\r\n");

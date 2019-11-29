@@ -1,6 +1,6 @@
-FreeRtosExampleTask/FreeRtosTasks.d FreeRtosExampleTask/FreeRtosTasks.o: \
- ../FreeRtosExampleTask/FreeRtosTasks.c ../FreeRtosExampleTask/LedTasks.h \
- ../FreeRtos/include/FreeRTOS.h \
+FreeRtosExampleTask/SerialPortTask.d FreeRtosExampleTask/SerialPortTask.o: \
+ ../FreeRtosExampleTask/SerialPortTask.c \
+ ../FreeRtosExampleTask/SerialPortTask.h ../FreeRtos/include/FreeRTOS.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stddef.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.3.1\include\stdint.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\stdint.h \
@@ -129,10 +129,25 @@ FreeRtosExampleTask/FreeRtosTasks.d FreeRtosExampleTask/FreeRtosTasks.o: \
  ../FreeRtos/portable/portmacro.h ../FreeRtos/include/mpu_wrappers.h \
  ../src/ASF/sam0/drivers/port/port.h \
  ../src/ASF/sam0/drivers/system/pinmux/pinmux.h \
- ../FreeRtosExampleTask/SerialPortTask.h ../FreeRtos/include/task.h \
+ ../src/ASF/sam0/drivers/sercom/edbg/stdio_serial.h \
+ ../src/ASF/common/sevices/serial/serial.h \
+ ../src/ASF/common/sevices/serial/sam0_usart/usart_serial.h \
+ ../src/ASF/sam0/drivers/sercom/usart/usart.h \
+ ../src/ASF/sam0/drivers/sercom/sercom.h \
+ ../src/ASF/sam0/drivers/system/system.h \
+ ../src/ASF/sam0/drivers/system/clock/clock.h \
+ ../src/ASF/sam0/drivers/system/clock/gclk.h \
+ ../src/ASF/sam0/drivers/system/clock/clock_saml22/clock_feature.h \
+ ../src/ASF/sam0/drivers/system/power/power_sam_l/power.h \
+ ../src/ASF/sam0/drivers/system/reset/reset_sam_l/reset.h \
+ ../src/ASF/sam0/drivers/system/interrupt/system_interrupt.h \
+ ../src/ASF/sam0/drivers/system/interrupt/system_interrupt_saml22/system_interrupt_features.h \
+ ../src/ASF/sam0/drivers/sercom/sercom_pinout.h \
+ ../src/ASF/sam0/drivers/sercom/sercom_interrupt.h \
+ ../src/ASF/sam0/drivers/sercom/sercom.h ../FreeRtos/include/task.h \
  ../FreeRtos/include/list.h
 
-../FreeRtosExampleTask/LedTasks.h:
+../FreeRtosExampleTask/SerialPortTask.h:
 
 ../FreeRtos/include/FreeRTOS.h:
 
@@ -400,7 +415,37 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../src/ASF/sam0/drivers/system/pinmux/pinmux.h:
 
-../FreeRtosExampleTask/SerialPortTask.h:
+../src/ASF/sam0/drivers/sercom/edbg/stdio_serial.h:
+
+../src/ASF/common/sevices/serial/serial.h:
+
+../src/ASF/common/sevices/serial/sam0_usart/usart_serial.h:
+
+../src/ASF/sam0/drivers/sercom/usart/usart.h:
+
+../src/ASF/sam0/drivers/sercom/sercom.h:
+
+../src/ASF/sam0/drivers/system/system.h:
+
+../src/ASF/sam0/drivers/system/clock/clock.h:
+
+../src/ASF/sam0/drivers/system/clock/gclk.h:
+
+../src/ASF/sam0/drivers/system/clock/clock_saml22/clock_feature.h:
+
+../src/ASF/sam0/drivers/system/power/power_sam_l/power.h:
+
+../src/ASF/sam0/drivers/system/reset/reset_sam_l/reset.h:
+
+../src/ASF/sam0/drivers/system/interrupt/system_interrupt.h:
+
+../src/ASF/sam0/drivers/system/interrupt/system_interrupt_saml22/system_interrupt_features.h:
+
+../src/ASF/sam0/drivers/sercom/sercom_pinout.h:
+
+../src/ASF/sam0/drivers/sercom/sercom_interrupt.h:
+
+../src/ASF/sam0/drivers/sercom/sercom.h:
 
 ../FreeRtos/include/task.h:
 
