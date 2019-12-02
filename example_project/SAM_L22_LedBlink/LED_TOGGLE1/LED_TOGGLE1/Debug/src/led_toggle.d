@@ -139,8 +139,10 @@ src/led_toggle.d src/led_toggle.o: ../src/led_toggle.c ../src/asf.h \
  ../FreeRtos/include/projdefs.h ../FreeRtos/include/portable.h \
  ../FreeRtos/include/deprecated_definitions.h \
  ../FreeRtos/portable/portmacro.h ../FreeRtos/include/mpu_wrappers.h \
- ../FreeRtosExampleTask/FreeRtosTasks.h ../FreeRtos/include/task.h \
- ../FreeRtos/include/list.h \
+ ../FreeRtosExampleTask/FreeRtosTasks.h \
+ ../FreeRtosExampleTask/ExamplTaskConfig.h ../FreeRtos/include/queue.h \
+ ../FreeRtos/include/task.h ../FreeRtos/include/list.h \
+ ../FreeRtos/include/task.h \
  ../src/ASF/sam0/drivers/sercom/edbg/stdio_serial.h \
  ../src/ASF/common/sevices/serial/serial.h \
  ../src/ASF/common/sevices/serial/sam0_usart/usart_serial.h \
@@ -446,9 +448,15 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../FreeRtosExampleTask/FreeRtosTasks.h:
 
+../FreeRtosExampleTask/ExamplTaskConfig.h:
+
+../FreeRtos/include/queue.h:
+
 ../FreeRtos/include/task.h:
 
 ../FreeRtos/include/list.h:
+
+../FreeRtos/include/task.h:
 
 ../src/ASF/sam0/drivers/sercom/edbg/stdio_serial.h:
 

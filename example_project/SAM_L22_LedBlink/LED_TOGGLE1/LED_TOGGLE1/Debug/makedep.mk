@@ -6,6 +6,8 @@ FreeRtosExampleTask\FreeRtosTasks.c
 
 FreeRtosExampleTask\LedTasks.c
 
+FreeRtosExampleTask\QueueExmplTasks.c
+
 FreeRtosExampleTask\SerialPortTask.c
 
 FreeRtos\croutine.c

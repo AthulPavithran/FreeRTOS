@@ -130,7 +130,9 @@ FreeRtosExampleTask/FreeRtosTasks.d FreeRtosExampleTask/FreeRtosTasks.o: \
  ../src/ASF/sam0/drivers/port/port.h \
  ../src/ASF/sam0/drivers/system/pinmux/pinmux.h \
  ../FreeRtosExampleTask/SerialPortTask.h ../FreeRtos/include/task.h \
- ../FreeRtos/include/list.h
+ ../FreeRtos/include/list.h ../FreeRtosExampleTask/QueueExmplTasks.h \
+ ../FreeRtos/include/queue.h ../FreeRtos/include/task.h \
+ ../FreeRtosExampleTask/ExamplTaskConfig.h
 
 ../FreeRtosExampleTask/LedTasks.h:
 
@@ -405,3 +407,11 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../FreeRtos/include/task.h:
 
 ../FreeRtos/include/list.h:
+
+../FreeRtosExampleTask/QueueExmplTasks.h:
+
+../FreeRtos/include/queue.h:
+
+../FreeRtos/include/task.h:
+
+../FreeRtosExampleTask/ExamplTaskConfig.h:
