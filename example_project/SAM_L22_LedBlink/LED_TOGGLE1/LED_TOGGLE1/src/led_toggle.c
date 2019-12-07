@@ -126,7 +126,9 @@ int main(void)
 	//! [enable_global_interrupts]*/
 	
 	/* Output example information */
+
 	puts("scheduler started..\r\n");
+	
 
 	config_led();
 

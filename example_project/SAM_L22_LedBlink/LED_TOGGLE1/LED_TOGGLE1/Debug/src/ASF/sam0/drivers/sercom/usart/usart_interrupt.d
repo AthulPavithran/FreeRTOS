@@ -134,7 +134,19 @@ src/ASF/sam0/drivers/sercom/usart/usart_interrupt.d \
  ../src/ASF/sam0/drivers/system/interrupt/system_interrupt_saml22/system_interrupt_features.h \
  ../src/ASF/sam0/drivers/sercom/sercom_pinout.h \
  ../src/ASF/sam0/drivers/sercom/sercom_interrupt.h \
- ../src/ASF/sam0/drivers/sercom/sercom.h
+ ../src/ASF/sam0/drivers/sercom/sercom.h ../FreeRtos/portable/portmacro.h \
+ ../FreeRtos/include/FreeRTOS.h \
+ ../FreeRtos/include/FreeRtosConfig/FreeRTOSConfig.h \
+ ../FreeRtos/portable/intrinsics.h ../src/ASF/common/boards/Board.h \
+ ../src/ASF/sam0/boards/saml22_xplained_pro/saml22_xplained_pro.h \
+ ../src/config/conf_board.h ../FreeRtos/include/projdefs.h \
+ ../FreeRtos/include/portable.h \
+ ../FreeRtos/include/deprecated_definitions.h \
+ ../FreeRtos/include/mpu_wrappers.h ../FreeRtos/include/queue.h \
+ ../FreeRtos/include/task.h ../FreeRtos/include/list.h \
+ ../FreeRtosExampleTask/FreeRtosTasks.h \
+ ../FreeRtosExampleTask/ExamplTaskConfig.h ../FreeRtos/include/semphr.h \
+ ../FreeRtos/include/queue.h
 
 ../src/ASF/sam0/drivers/sercom/usart/usart_interrupt.h:
 
@@ -405,3 +417,39 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../src/ASF/sam0/drivers/sercom/sercom_interrupt.h:
 
 ../src/ASF/sam0/drivers/sercom/sercom.h:
+
+../FreeRtos/portable/portmacro.h:
+
+../FreeRtos/include/FreeRTOS.h:
+
+../FreeRtos/include/FreeRtosConfig/FreeRTOSConfig.h:
+
+../FreeRtos/portable/intrinsics.h:
+
+../src/ASF/common/boards/Board.h:
+
+../src/ASF/sam0/boards/saml22_xplained_pro/saml22_xplained_pro.h:
+
+../src/config/conf_board.h:
+
+../FreeRtos/include/projdefs.h:
+
+../FreeRtos/include/portable.h:
+
+../FreeRtos/include/deprecated_definitions.h:
+
+../FreeRtos/include/mpu_wrappers.h:
+
+../FreeRtos/include/queue.h:
+
+../FreeRtos/include/task.h:
+
+../FreeRtos/include/list.h:
+
+../FreeRtosExampleTask/FreeRtosTasks.h:
+
+../FreeRtosExampleTask/ExamplTaskConfig.h:
+
+../FreeRtos/include/semphr.h:
+
+../FreeRtos/include/queue.h:

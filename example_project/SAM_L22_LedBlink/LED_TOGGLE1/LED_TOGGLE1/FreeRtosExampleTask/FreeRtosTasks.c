@@ -5,12 +5,15 @@
 #include "QueueExmplTasks.h"
 #include "queue.h"
 #include "ExamplTaskConfig.h"
+#include "semphr.h"
+
 
 
 
 TaskHandle_t sLedOnTask;
 TaskHandle_t sLedffTask;
 TaskHandle_t sSerialTaskOne;
+
 
 #if (QUEUE_TASK)
 
@@ -21,11 +24,21 @@ TaskHandle_t sSerialTaskOne;
 
 #endif
 
+#if (SEMAPHORE_TASK)
+
+QueueHandle_t xQueue1;
+TaskHandle_t  sQueue3;
+TaskHandle_t   UartRecTask;
+uint8_t auQueue8Data [10] = "0123456789";
+SemaphoreHandle_t xSemaphore;
+
+#endif
+
 
 void vApplicationIdleHook( void )
 {
 	/* enter sleep mode*/
-	__WFI();	
+	//__WFI();	
 }
 
 
@@ -52,10 +65,9 @@ BaseType_t u32RetType = 1u;
 	{
 		u32RetType =  xTaskCreate( sserial_task_two,"SERIAL_TASK_2", 80, 0u, 2u,&sSerialTaskOne );		
 	}
+#endif
 	
-#elif (QUEUE_TASK)
-
-
+#if (QUEUE_TASK)
 
 	xQueue1 = xQueueCreate( 10, sizeof( int8_t ) );
 
@@ -63,11 +75,35 @@ BaseType_t u32RetType = 1u;
 	u32RetType =  xTaskCreate( queue_task_one,"SEND_1_Q_1", 40, 0u, 1u,&sQueue1 );
 	if(u32RetType == 1)
 	{
-	//	u32RetType =  xTaskCreate( queue_task_two,"SEND_2_Q_1", 80, 0u, 1u,&sQueue2 );
+		u32RetType =  xTaskCreate( queue_task_two,"SEND_2_Q_1", 80, 0u, 1u,&sQueue2 );
 	}
 	if(u32RetType == 1)
 	{
 		u32RetType =  xTaskCreate( queue_task_three,"RECEIVE_1_Q_1", 80, 0u, 1u,&sQueue3 );
+	}
+#endif
+#if (SEMAPHORE_TASK)	
+
+    xQueue1 = xQueueCreate( 10, sizeof( int8_t ) );
+	
+	if(xQueue1)
+	{
+			/* Attempt to create a semaphore. */
+			xSemaphore = xSemaphoreCreateBinary();
+			if(xSemaphore == NULL)
+			{
+				/* error*/
+			}
+		
+	}
+	else
+	{
+		/* error*/
+	}
+
+	if(u32RetType == 1)
+	{
+		u32RetType =  xTaskCreate( queue_task_four,"RECEIVE_1_Q_1", 80, 0u, 1u,&sQueue3 );
 	}
 
 #endif

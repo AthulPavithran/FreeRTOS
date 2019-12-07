@@ -149,7 +149,8 @@ FreeRtosExampleTask/QueueExmplTasks.d \
  ../src/ASF/sam0/drivers/sercom/sercom.h ../FreeRtos/include/task.h \
  ../FreeRtos/include/list.h ../FreeRtosExampleTask/FreeRtosTasks.h \
  ../FreeRtosExampleTask/ExamplTaskConfig.h ../FreeRtos/include/queue.h \
- ../FreeRtos/include/task.h \
+ ../FreeRtos/include/task.h ../FreeRtos/include/semphr.h \
+ ../FreeRtos/include/queue.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\string.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\xlocale.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\string.h
@@ -467,6 +468,10 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../FreeRtos/include/queue.h:
 
 ../FreeRtos/include/task.h:
+
+../FreeRtos/include/semphr.h:
+
+../FreeRtos/include/queue.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\string.h:
 

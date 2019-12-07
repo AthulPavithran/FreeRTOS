@@ -1143,6 +1143,9 @@ static inline void usart_enable(
 	/* Wait until synchronization is complete */
 	_usart_wait_for_sync(module);
 
+	/*Enable receive  interrupt*/
+	usart_hw->INTENSET.reg = 1u << 2u;
+
 	/* Enable USART module */
 	usart_hw->CTRLA.reg |= SERCOM_USART_CTRLA_ENABLE;
 }

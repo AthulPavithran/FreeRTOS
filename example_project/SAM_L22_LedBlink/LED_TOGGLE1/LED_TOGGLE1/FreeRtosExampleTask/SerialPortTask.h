@@ -7,6 +7,7 @@
 
 void sserial_task_one(void);
 void sserial_task_two(void);
+void sserial_task_three(void);
 
 
 #endif

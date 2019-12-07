@@ -35,6 +35,11 @@
  */
 
 #include "usart_interrupt.h"
+#include "portmacro.h"
+#include "FreeRTOS.h"
+#include "queue.h"
+#include "FreeRtosTasks.h"
+
 
 /**
  * \internal
@@ -448,6 +453,8 @@ enum status_code usart_get_job_status(
  * \param[in]  instance  ID of the SERCOM instance calling the interrupt
  *                       handler.
  */
+uint8_t au8UartData[20];
+uint16_t u16UartDataIndex =0u;
 void _usart_interrupt_handler(
 		uint8_t instance)
 {
@@ -520,22 +527,16 @@ void _usart_interrupt_handler(
 	/* Check if the Receive Complete interrupt has occurred, and that
 	 * there's more data to receive */
 	if (interrupt_status & SERCOM_USART_INTFLAG_RXC) {
-
-		if (module->remaining_rx_buffer_length) {
+		
+		if(u16UartDataIndex == sizeof(au8UartData))
+		{
+			u16UartDataIndex = 0u;
+			
+		}
+		
 			/* Read out the status code and mask away all but the 4 LSBs*/
 			error_code = (uint8_t)(usart_hw->STATUS.reg & SERCOM_USART_STATUS_MASK);
-#if !SAMD20
-			/* CTS status should not be considered as an error */
-			if(error_code & SERCOM_USART_STATUS_CTS) {
-				error_code &= ~SERCOM_USART_STATUS_CTS;
-			}
-#endif
-#ifdef FEATURE_USART_LIN_MASTER
-			/* TXE status should not be considered as an error */
-			if(error_code & SERCOM_USART_STATUS_TXE) {
-				error_code &= ~SERCOM_USART_STATUS_TXE;
-			}
-#endif
+
 			/* Check if an error has occurred during the receiving */
 			if (error_code) {
 				/* Check which error occurred */
@@ -552,13 +553,7 @@ void _usart_interrupt_handler(
 					module->rx_status = STATUS_ERR_BAD_DATA;
 					usart_hw->STATUS.reg = SERCOM_USART_STATUS_PERR;
 				}
-#ifdef FEATURE_USART_LIN_SLAVE
-				else if (error_code & SERCOM_USART_STATUS_ISF) {
-					/* Store the error code and clear flag by writing 1 to it */
-					module->rx_status = STATUS_ERR_PROTOCOL;
-					usart_hw->STATUS.reg = SERCOM_USART_STATUS_ISF;
-				}
-#endif
+
 #ifdef FEATURE_USART_COLLISION_DECTION
 				else if (error_code & SERCOM_USART_STATUS_COLL) {
 					/* Store the error code and clear flag by writing 1 to it */
@@ -578,37 +573,27 @@ void _usart_interrupt_handler(
 				/* Read current packet from DATA register,
 				 * increment buffer pointer and decrement buffer length */
 				uint16_t received_data = (usart_hw->DATA.reg & SERCOM_USART_DATA_MASK);
-
+				BaseType_t HigherPriorityTaskWoken;
+				BaseType_t xStatus;
+				
+				xStatus = xQueueSendToBackFromISR(xQueue1, &received_data, &HigherPriorityTaskWoken);
+				xSemaphoreGiveFromISR( xSemaphore, &HigherPriorityTaskWoken );
+				if( xStatus != pdPASS )
+				{
+					
+					/*TODO: Log Error*/
+				}
+				if(HigherPriorityTaskWoken ==pdPASS)
+				{ 
+					/* TODO : context switching*/
+				//	portYIELD_FROM_ISR( HigherPriorityTaskWoken ); 
+					
+				}
 				/* Read value will be at least 8-bits long */
-				*(module->rx_buffer_ptr) = received_data;
-				/* Increment 8-bit pointer */
-				module->rx_buffer_ptr += 1;
-
-				if (module->character_size == USART_CHARACTER_SIZE_9BIT) {
-					/* 9-bit data, write next received byte to the buffer */
-					*(module->rx_buffer_ptr) = (received_data >> 8);
-					/* Increment 8-bit pointer */
-					module->rx_buffer_ptr += 1;
-				}
-
-				/* Check if the last character have been received */
-				if(--(module->remaining_rx_buffer_length) == 0) {
-					/* Disable RX Complete Interrupt,
-					 * and set STATUS_OK */
-					usart_hw->INTENCLR.reg = SERCOM_USART_INTFLAG_RXC;
-					module->rx_status = STATUS_OK;
-
-					/* Run callback if registered and enabled */
-					if (callback_status
-							& (1 << USART_CALLBACK_BUFFER_RECEIVED)) {
-						(*(module->callback[USART_CALLBACK_BUFFER_RECEIVED]))(module);
-					}
-				}
+				au8UartData[u16UartDataIndex++] = received_data;
+				
 			}
-		} else {
-			/* This should not happen. Disable Receive Complete interrupt. */
-			usart_hw->INTENCLR.reg = SERCOM_USART_INTFLAG_RXC;
-		}
+
 	}
 
 #ifdef FEATURE_USART_HARDWARE_FLOW_CONTROL

@@ -142,6 +142,7 @@ src/led_toggle.d src/led_toggle.o: ../src/led_toggle.c ../src/asf.h \
  ../FreeRtosExampleTask/FreeRtosTasks.h \
  ../FreeRtosExampleTask/ExamplTaskConfig.h ../FreeRtos/include/queue.h \
  ../FreeRtos/include/task.h ../FreeRtos/include/list.h \
+ ../FreeRtos/include/semphr.h ../FreeRtos/include/queue.h \
  ../FreeRtos/include/task.h \
  ../src/ASF/sam0/drivers/sercom/edbg/stdio_serial.h \
  ../src/ASF/common/sevices/serial/serial.h \
@@ -455,6 +456,10 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../FreeRtos/include/task.h:
 
 ../FreeRtos/include/list.h:
+
+../FreeRtos/include/semphr.h:
+
+../FreeRtos/include/queue.h:
 
 ../FreeRtos/include/task.h:
 

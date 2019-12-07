@@ -61,3 +61,17 @@ void sserial_task_two(void)
 	vTaskDelete("SERIAL_TASK_2");
 
 }
+
+
+void sserial_task_three(void)
+{
+	TickType_t xLastWakeTime;
+	xLastWakeTime = xTaskGetTickCount();
+	while(1)
+	{
+		
+
+	}
+	vTaskDelete("SERIAL_TASK_2");
+
+}
