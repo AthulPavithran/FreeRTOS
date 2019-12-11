@@ -99,7 +99,7 @@ void queue_task_four(void)
 			}
 			/* We have finished accessing the shared resource.  Release the
             semaphore. */
-            xSemaphoreGive( xSemaphore );
+  
 		}
 	}
 }
