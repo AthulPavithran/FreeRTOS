@@ -34,6 +34,14 @@ SemaphoreHandle_t xSemaphore;
 
 #endif
 
+#if (MUTEX_TASK)
+
+SemaphoreHandle_t  xMutex;
+TaskHandle_t   xSerial4;
+TaskHandle_t   xSerial5;
+
+#endif
+
 
 void vApplicationIdleHook( void )
 {
@@ -107,6 +115,20 @@ BaseType_t u32RetType = 1u;
 	}
 
 #endif
+
+#if (MUTEX_TASK)
+
+	
+	xMutex = xSemaphoreCreateMutex();
+		if(u32RetType == 1)
+		{
+			u32RetType =  xTaskCreate( serial_task_four,"SERIAL_TASK_FOUR", 80, 0u, 1u,&xSerial4 );
+		}
+		if(u32RetType == 1)
+		{
+			u32RetType =  xTaskCreate( serial_task_five,"SERIAL_TASK_FIVE", 80, 0u, 1u,&xSerial5 );
+		}
+#endif	
 
 return u32RetType;
 }

@@ -2,6 +2,8 @@
 #include "SerialPortTask.h"
 #include "stdio_serial.h"
 #include "task.h"
+#include "semphr.h"
+#include "FreeRtosTasks.h"
 
 
 #define PRIORITY_TEST      1
@@ -74,4 +76,34 @@ void sserial_task_three(void)
 	}
 	vTaskDelete("SERIAL_TASK_2");
 
+}
+
+void serial_task_four(void)
+{
+	
+	while(1)
+	{
+		
+	 xSemaphoreTake( xMutex, pdMS_TO_TICKS( 50000 ) );	
+	 puts("How are you\r\n");
+	 xSemaphoreGive( xMutex );
+	 taskYIELD();
+		
+	}
+	
+}
+
+void serial_task_five(void)
+{
+	
+	while(1)
+	{
+		xSemaphoreTake( xMutex, pdMS_TO_TICKS( 50000 ) );
+		puts("I am good\r\n");
+		xSemaphoreGive( xMutex );
+		taskYIELD();
+		
+		
+	}
+	
 }

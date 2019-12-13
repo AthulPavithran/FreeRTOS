@@ -573,6 +573,7 @@ void _usart_interrupt_handler(
 				/* Read current packet from DATA register,
 				 * increment buffer pointer and decrement buffer length */
 				uint16_t received_data = (usart_hw->DATA.reg & SERCOM_USART_DATA_MASK);
+#if (SEMAPHORE_TASK)
 				BaseType_t HigherPriorityTaskWoken;
 				BaseType_t xStatus;
 				
@@ -589,6 +590,7 @@ void _usart_interrupt_handler(
 				//	portYIELD_FROM_ISR( HigherPriorityTaskWoken ); 
 					
 				}
+#endif
 				/* Read value will be at least 8-bits long */
 				au8UartData[u16UartDataIndex++] = received_data;
 				

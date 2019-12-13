@@ -24,6 +24,14 @@ extern SemaphoreHandle_t xSemaphore;
 
 #endif
 
+#if (MUTEX_TASK)
+
+extern SemaphoreHandle_t  xMutex;
+extern TaskHandle_t   xSerial4;
+extern TaskHandle_t   xSerial5;
+
+#endif
+
 BaseType_t FreeRtosTasks(void);
 
 #endif

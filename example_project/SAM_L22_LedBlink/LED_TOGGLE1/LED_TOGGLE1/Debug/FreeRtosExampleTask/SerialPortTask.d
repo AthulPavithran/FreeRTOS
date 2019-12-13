@@ -145,7 +145,10 @@ FreeRtosExampleTask/SerialPortTask.d FreeRtosExampleTask/SerialPortTask.o: \
  ../src/ASF/sam0/drivers/sercom/sercom_pinout.h \
  ../src/ASF/sam0/drivers/sercom/sercom_interrupt.h \
  ../src/ASF/sam0/drivers/sercom/sercom.h ../FreeRtos/include/task.h \
- ../FreeRtos/include/list.h
+ ../FreeRtos/include/list.h ../FreeRtos/include/semphr.h \
+ ../FreeRtos/include/queue.h ../FreeRtos/include/task.h \
+ ../FreeRtosExampleTask/FreeRtosTasks.h \
+ ../FreeRtosExampleTask/ExamplTaskConfig.h ../FreeRtos/include/queue.h
 
 ../FreeRtosExampleTask/SerialPortTask.h:
 
@@ -450,3 +453,15 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../FreeRtos/include/task.h:
 
 ../FreeRtos/include/list.h:
+
+../FreeRtos/include/semphr.h:
+
+../FreeRtos/include/queue.h:
+
+../FreeRtos/include/task.h:
+
+../FreeRtosExampleTask/FreeRtosTasks.h:
+
+../FreeRtosExampleTask/ExamplTaskConfig.h:
+
+../FreeRtos/include/queue.h:
